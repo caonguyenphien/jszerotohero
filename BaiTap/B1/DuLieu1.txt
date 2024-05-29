@@ -1,0 +1,22 @@
+Chuỗi cửa hàng thức ăn nhanh có 5 cơ sở ở SG
+
+Cơ sở 1: Pham Van Dong Str.|Doanh Thu:100tr|Chi Phí Nguyên Liệu & Setup:60tr|Chi Phí Nhân Viên: 15tr| Chi Phí Mặt Bằng:5tr| Chi Phí Điện Nước:2tr| Chi Phí Quảng Cáo:3tr
+
+Cơ sở 2: Hoang Van Thu Str.|Doanh Thu:150tr|Chi Phí Nguyên Liệu & Setup:60tr|Chi Phí Nhân Viên: 20tr| Chi Phí Mặt Bằng:15tr| Chi Phí Điện Nước:5tr| Chi Phí Quảng Cáo:2tr
+
+Cơ sở 3: Nguyen Hue Str.|Doanh Thu:90tr|Chi Phí Nguyên Liệu & Setup:65tr|Chi Phí Nhân Viên: 10tr| Chi Phí Mặt Bằng:8tr| Chi Phí Điện Nước:2tr| Chi Phí Quảng Cáo:2tr
+
+Cơ sở 4: Tran Hung Dao Str.|Doanh Thu:200tr|Chi Phí Nguyên Liệu & Setup:80tr|Chi Phí Nhân Viên: 22tr| Chi Phí Mặt Bằng:20tr| Chi Phí Điện Nước:8tr| Chi Phí Quảng Cáo:5tr
+
+Cơ sở 5: Dien Bien Phu Str.|Doanh Thu:290tr|Chi Phí Nguyên Liệu & Setup:200tr|Chi Phí Nhân Viên: 45tr| Chi Phí Mặt Bằng:25tr| Chi Phí Điện Nước:14tr| Chi Phí Quảng Cáo:30tr
+
+Y/c: 
+
+1.Tính lãi lỗ của từng chuỗi cửa hàng
+Tổng chi phí = Chi Phí Nguyên Liệu & Setup + Chi Phí Nhân Viên + Chi Phí Mặt Bằng + Chi Phí Điện Nước + Chi Phí Quảng Cáo 
+Lợi Nhuận = Doanh thu - Tổng chi phí
+
+2. Chiến Lược phát triển doanh nghiệp
+Nếu tổng lợi nhuận của cả 5 cửa hàng dưới 50tr thì sẽ đóng 1 cơ sở lợi nhuận thấp nhất. 
+Nếu tổng lợi nhuận ở ngưỡng 65 ~ 80tr sẽ lấy ra 10% làm quỹ dự phòng.
+Nếu tổng lợi nhuận trên 120tr sẽ mở thêm 1 cơ sở mới.
