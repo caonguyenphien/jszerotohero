@@ -1,0 +1,6 @@
+1.Tạo lớp 'NhanVien' với các thuộc tính cơ bản như 'hoten', 'luong', 'phongban'.
+2.Tạo lớp 'QuanLy' kế thừa từ 'NhanVien' và thêm các thuộc tính riêng như 'team', 'ngansach'.
+3.Tạo lớp 'Developer' kế thừa từ 'NhanVien' và thêm các thuộc tính riêng như 'kynang', 'project'.
+4.Thêm các phương thức chung cho 'NhanVien' như NhanLuong() và các phương thức riêng cho 'QuanLy' và 'Developer' (ví dụ: quanlyTeam() cho 'QuanLy', codeProject() cho 'Developer').
+
+r tự demo về code xong chộp em xem nhé
