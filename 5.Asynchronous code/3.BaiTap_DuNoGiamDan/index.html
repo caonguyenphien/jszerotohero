@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT DNGD</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td,
+        th{
+            text-align: center;
+            padding: 8px;
+            border: 1px solid white;
+        }
+        th{
+            background-color: white;
+        }
+        input{
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tính lịch trả nợ</h1>
+
+    <div>
+        <label for="sotien">Số tiền vay:</label>
+        <input type="number" id="sotien" placeholder="Nhập số tiền vay ...">
+    </div>
+    <br>
+    <div>
+        <label for="thoihanvay">Thời hạn vay:</label>
+        <input type="number" id="thoihanvay" placeholder="Nhập thời hạn vay theo tháng...">
+    </div>
+    <br>
+    <div>
+        <label for="laisuatvay">Lãi suất vay:</label>
+        <input type="number" id="laisuatvay" placeholder="Nhập lãi suất vay ...">
+    </div>
+    <br>
+    <button id="tinhtoan">Tính toán</button>
+
+    <div id="ketqua"></div>
+
+
+    <script>
+        // Giải thuật toán xử lý logic
+        function tinhlichtrano(sotien,thoihanvay,laisuatvay){
+            //Chuẩn bị dữ liệu
+            let soTienConLai = sotien;
+            let laiSuatHangThang = laisuatvay / 12 / 100;
+            let lichTraNo = [];
+
+            //Tính lịch trả nợ
+            for(let i = 1; i <= thoihanvay; i++){
+                // Tính số tiền lãi phải trả
+                let soTienLai = soTienConLai * laiSuatHangThang;
+
+                // Tính số tiền gốc phải trả
+                let soTienGoc = sotien / thoihanvay;
+
+                // Cập nhật số tiền gốc còn lại
+                soTienConLai -= soTienGoc;
+
+                //Thêm dữ liệu vào lịch trả nợ
+                lichTraNo.push({
+                    kyTralai: i,
+                    soTienGocConLai: soTienConLai.toFixed(2),
+                    SoTienGocPhaiTra: soTienGoc.toFixed(2),
+                    soTienLaiPhaiTra: soTienLai.toFixed(2),
+                    tongTienGocvaLai: (soTienGoc + soTienLai).toFixed(2),
+                });
+            }
+
+            // Tính tổng tiền gốc và lãi
+            let tongTien = lichTraNo.reduce((total, item) =>{
+                return parseFloat(total) + parseFloat(item.tongTienGocvaLai);
+            },0);
+
+            // Tính tổng tiền lãi phải trả
+            let tongLai = lichTraNo.reduce((total2,item2)=>{
+                return parseFloat(total2)+ parseFloat(item2.soTienLaiPhaiTra);
+            },0);
+
+            // Trả về kết quả
+            return {
+                lichTraNo: lichTraNo,
+                tongLai: tongLai.toFixed(2),
+                tongTien: tongTien.toFixed(2),
+            }
+        };
+        // Chèn vào html
+        document.getElementById('tinhtoan').addEventListener('click', function(){
+            let soTien = parseFloat(document.getElementById('sotien').value);
+            let thoihanvay = parseFloat(document.getElementById('thoihanvay').value);
+            let laisuatvay = parseFloat(document.getElementById('laisuatvay').value);
+
+            let ketqua = tinhlichtrano(soTien,thoihanvay,laisuatvay);
+
+            let html = `
+            
+    <h2>lịch trả nợ</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Kỳ trả lãi</th>
+                <th>Số tiền gốc phải trả</th>
+                <th>Sô tiền lãi phải trả</th>
+                <th>Số tiền gốc còn lại</th>
+                <th>Tổng tiền gốc và lãi phải trả</th>
+            </tr>
+        </thead>
+        <tbody> 
+            `;
+
+            ketqua.lichTraNo.forEach(item =>{
+                html += `
+                <tr>
+                    <td>${item.kyTralai}</td>
+                    <td>${item.SoTienGocPhaiTra}</td>
+                    <td>${item.soTienLaiPhaiTra}</td>
+                    <td>${item.soTienGocConLai}</td>
+                    <td>${item.tongTienGocvaLai}</td>
+                </tr>
+                `;
+            });
+
+            html += `
+                </tbody>
+            </table>
+            <p>Tổng tiền lãi phải trả: ${ketqua.tongLai} </p>
+            <p>Tổng tiền gốc và lãi: ${ketqua.tongTien}</p>
+            `;
+
+            document.getElementById('ketqua').innerHTML = html;
+
+        });
+        
+    </script>
+</body>
+</html>
