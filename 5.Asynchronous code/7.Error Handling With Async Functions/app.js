@@ -8,7 +8,7 @@ async function batbonconpokemon(){
         const res2 = await fetch(`${BASE_URL}/2`);
         console.log(res2);
 
-        const res3 = await fetch(`https://abc.abong`);
+        const res3 = await fetch(`${BASE_URL}/3`);
         console.log(res3);
 
         const res4  = await fetch(`${BASE_URL}/4`);
